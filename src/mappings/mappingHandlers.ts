@@ -23,7 +23,6 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
   let section = extrinsic.extrinsic.method.section.toString().toLowerCase();
   let method = extrinsic.extrinsic.method.method.toString().toLowerCase();
 
-  await handleSubstrateExtrinsic(extrinsic);
   if (section == 'dmp' || section == 'hrmp' || section == 'ump' || section == 'parainherent' || section == 'xcmpallet') {
     logger.info(
       `[automationTime] handleCall blockNumber: ${blockNumber} section.method: ${section}.${method}`
