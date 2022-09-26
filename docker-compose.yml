@@ -5,10 +5,10 @@ services:
     image: onfinality/subql-node:v0.29.0
     restart: always
     environment:
-      DB_USER: postgres
-      DB_PASS: Dev123!@#
-      DB_DATABASE: dev-polkadot-xcm
-      DB_HOST: 16.163.5.216
+      DB_USER: 
+      DB_PASS: 
+      DB_DATABASE:
+      DB_HOST: 
       DB_PORT: 5432
     volumes:
       - ./:/app
