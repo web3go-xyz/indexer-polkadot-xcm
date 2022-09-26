@@ -1,0 +1,37 @@
+type SubstrateBlockEntity @entity {
+  id: ID!
+  block_number: BigInt!
+  timestamp: BigInt!
+  hash: String!
+  runtime_version: Int
+  created_at: BigInt!
+}
+
+type SubstrateExtrinsicEntity @entity {
+  id: ID!
+  block_number: BigInt!
+  idx: Int!
+  section: String!
+  method: String!
+  name: String
+  args: String
+  signer: String
+  signature: String
+  hash: String
+  created_at: BigInt!
+  timestamp: BigInt
+}
+
+type SubstrateEventEntity @entity {
+  id: ID!
+  block_number: BigInt!
+  name: String!
+  section: String!
+  method: String!
+  idx: Int
+  data: String
+  extrinsic_hash: String
+
+  created_at: BigInt!
+  timestamp: BigInt
+}
