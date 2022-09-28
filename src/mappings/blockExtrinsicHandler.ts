@@ -29,9 +29,9 @@ export async function handleSubstrateExtrinsic(
   extrinsicEntity.hash = extrinsic.extrinsic.hash.toString();
   extrinsicEntity.created_at = BigInt(new Date().getTime());
   extrinsicEntity.timestamp = BigInt(extrinsic.block.timestamp.getTime());
-  logger.info(
-    `successCall-${blockNumber}`
-  );
+  // logger.info(
+  //   `successCall-${blockNumber}`
+  // );
   await extrinsicEntity.save();
 
   return extrinsicEntity;

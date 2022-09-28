@@ -32,9 +32,9 @@ export async function handleSubstrateEvent(
   }
   eventEntity.created_at = BigInt(new Date().getTime());
   eventEntity.timestamp = BigInt(event.block.timestamp.getTime());
-  logger.info(
-    `successEvent-${blockNumber}`
-  );
+  // logger.info(
+  //   `successEvent-${blockNumber}`
+  // );
   await eventEntity.save();
 
   return eventEntity;

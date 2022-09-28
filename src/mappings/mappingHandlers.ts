@@ -23,26 +23,30 @@ export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
   let section = extrinsic.extrinsic.method.section.toString().toLowerCase();
   let method = extrinsic.extrinsic.method.method.toString().toLowerCase();
 
+  
   if (section == 'dmp' || section == 'hrmp' || section == 'ump' || section == 'parainherent' || section == 'xcmpallet') {
-    logger.info(
-      `[automationTime] handleCall blockNumber: ${blockNumber} section.method: ${section}.${method}`
-    );
+    // logger.info(
+    //   `[automationTime] handleCall blockNumber: ${blockNumber} section.method: ${section}.${method}`
+    // );
     await handleSubstrateExtrinsic(extrinsic);
+    for (const e of extrinsic.events as any) {
+      await handleSubstrateEvent(e);
+    }
   }
 }
 
-export async function handleEvent(event: SubstrateEvent): Promise<void> {
+// export async function handleEvent(event: SubstrateEvent): Promise<void> {
 
-  let blockNumber = event.block.block.header.number.toBigInt();
+//   let blockNumber = event.block.block.header.number.toBigInt();
 
-  let evt_method = event.event.method.toLowerCase();
-  let evt_section = event.event.section.toLowerCase();
+//   let evt_method = event.event.method.toLowerCase();
+//   let evt_section = event.event.section.toLowerCase();
 
-  if (evt_section == 'dmp' || evt_section == 'hrmp' || evt_section == 'ump' || evt_section == 'parainherent' || evt_section == 'xcmpallet') {
-    logger.info(
-      `[automationTime] handleEvent blockNumber: ${blockNumber} section.method: ${evt_section}.${evt_method}`
-    );
-    await handleSubstrateEvent(event);
-  }
+//   if (evt_section == 'dmp' || evt_section == 'hrmp' || evt_section == 'ump' || evt_section == 'parainherent' || evt_section == 'xcmpallet') {
+//     logger.info(
+//       `[automationTime] handleEvent blockNumber: ${blockNumber} section.method: ${evt_section}.${evt_method}`
+//     );
+//     await handleSubstrateEvent(event);
+//   }
 
-}
+// }

@@ -4,8 +4,9 @@ repository: ""
 schema:
   file: ./schema.graphql
 network:
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  endpoint: 'wss://polkadot.public.curie.radiumblock.io/ws'
   genesisHash: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  dictionary: https://api.subquery.network/sq/subquery/polkadot-dictionary
   chaintypes:
     file: ./dist/chaintypes.js
 dataSources:
@@ -15,10 +16,24 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
-        # - handler: handleBlock
-        #   kind: substrate/BlockHandler
         - handler: handleCall
           kind: substrate/CallHandler
-
-        - handler: handleEvent
-          kind: substrate/EventHandler
+          filter: 
+            module: dmp
+        - handler: handleCall
+          kind: substrate/CallHandler
+          filter: 
+            module: hrmp
+        - handler: handleCall
+          kind: substrate/CallHandler
+          filter: 
+            module: ump
+        - handler: handleCall
+          kind: substrate/CallHandler
+          filter: 
+            module: paraInherent
+        - handler: handleCall
+          kind: substrate/CallHandler
+          filter: 
+            module: xcmPallet
+     

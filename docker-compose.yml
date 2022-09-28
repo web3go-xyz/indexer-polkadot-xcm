@@ -1,14 +1,14 @@
 version: "3"
 
 services:
-  subquery-node-oak-task-service:
+  subquery-polkadot-XCM-task-service:
     image: onfinality/subql-node:v0.29.0
     restart: always
     environment:
-      DB_USER: 
-      DB_PASS: 
-      DB_DATABASE:
-      DB_HOST: 
+      DB_USER: postgres
+      DB_PASS: Dev123!@#
+      DB_DATABASE: dev-polkadot-xcm
+      DB_HOST: 16.163.5.216
       DB_PORT: 5432
     volumes:
       - ./:/app
@@ -18,6 +18,6 @@ services:
       - --scale-batch-size=false
       - --batch-size=20
       #- --force-clean=true
-      # - --log-level=debug
+      - --log-level=debug
       # - --debug
       # - --profiler=true
