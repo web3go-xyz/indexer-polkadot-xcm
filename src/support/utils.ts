@@ -13,6 +13,6 @@ export const uuid = () => {
     });
 }
 
-export const getID = () => {
+export const getID_Deprecated = () => {
     return (new Date()).getTime() + '-' + uuid().substring(0, 4);
 };

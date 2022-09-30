@@ -1,6 +1,6 @@
 import { SubstrateExtrinsic } from "@subql/types";
 import { SubstrateExtrinsicEntity } from "../types";
-import { getID, JSONStringifyExt } from "../support/utils";
+import {  JSONStringifyExt } from "../support/utils";
 import { ParachainConstants } from "../constants";
 
 export async function handleSubstrateExtrinsic(
@@ -13,7 +13,7 @@ export async function handleSubstrateExtrinsic(
 
   //SubstrateExtrinsicEntity
   let extrinsicEntity = new SubstrateExtrinsicEntity(
-    `${blockNumber}-${getID()}`
+    `${blockNumber}-${extrinsic.idx}`
   );
 
   extrinsicEntity.block_number = blockNumber;

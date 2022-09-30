@@ -1,6 +1,6 @@
 import { SubstrateEvent, SubstrateExtrinsic } from "@subql/types";
 import { SubstrateEventEntity, SubstrateExtrinsicEntity } from "../types";
-import { getID, JSONStringifyExt } from "../support/utils";
+import { JSONStringifyExt } from "../support/utils";
 import { ParachainConstants } from "../constants";
 
 export async function handleSubstrateEvent(
@@ -12,8 +12,14 @@ export async function handleSubstrateEvent(
   }
   let evt_method = event.event.method;
   let evt_section = event.event.section;
-  
-  let eventEntity = new SubstrateEventEntity(`${blockNumber}-${getID()}`);
+
+  let event_id = '';
+  if (event.extrinsic) {
+    event_id = `${blockNumber}-${event.extrinsic.extrinsic.hash.toString()}-${event.idx}`;
+  } else {
+    event_id = `${blockNumber}-${event.idx}`;
+  }
+  let eventEntity = new SubstrateEventEntity(event_id);
 
   eventEntity.block_number = blockNumber;
 
