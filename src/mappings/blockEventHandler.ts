@@ -13,12 +13,8 @@ export async function handleSubstrateEvent(
   let evt_method = event.event.method;
   let evt_section = event.event.section;
 
-  let event_id = '';
-  if (event.extrinsic) {
-    event_id = `${blockNumber}-${event.extrinsic.extrinsic.hash.toString()}-${event.idx}`;
-  } else {
-    event_id = `${blockNumber}-${event.idx}`;
-  }
+  let event_id = `${blockNumber}-${event.idx}`;
+
   let eventEntity = new SubstrateEventEntity(event_id);
 
   eventEntity.block_number = blockNumber;
