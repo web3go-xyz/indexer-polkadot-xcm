@@ -30,7 +30,7 @@ type SubstrateEventEntity @entity {
   method: String!
   idx: Int
   data: String
-  extrinsic_hash: String
+  extrinsic: String
 
   created_at: BigInt!
   timestamp: BigInt

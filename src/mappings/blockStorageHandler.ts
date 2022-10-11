@@ -7,7 +7,7 @@ export async function handleBlockStorage(
   let blockNumber = block.block.header.number.toBigInt();
 
   //SubstrateBlockEntity
-  let blockEntity = new SubstrateBlockEntity(`${blockNumber}}`);
+  let blockEntity = new SubstrateBlockEntity(`${blockNumber}`);
   blockEntity.block_number = blockNumber;
 
   blockEntity.timestamp = BigInt(block.timestamp.getTime());

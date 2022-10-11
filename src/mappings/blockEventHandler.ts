@@ -20,7 +20,7 @@ export async function handleSubstrateEvent(
   eventEntity.block_number = blockNumber;
 
   if (event.extrinsic) {
-    eventEntity.extrinsic_hash = event.extrinsic.extrinsic.hash.toString();
+    eventEntity.extrinsic = `${blockNumber}-${event.extrinsic.idx}`;
   }
 
   eventEntity.idx = event.idx;
@@ -34,10 +34,6 @@ export async function handleSubstrateEvent(
   }
   eventEntity.created_at = BigInt(new Date().getTime());
   eventEntity.timestamp = BigInt(event.block.timestamp.getTime());
-  // logger.info(
-  //   `successEvent-${blockNumber}`
-  // );
   await eventEntity.save();
-
   return eventEntity;
 }

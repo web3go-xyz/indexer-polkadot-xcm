@@ -16,24 +16,10 @@ dataSources:
     mapping:
       file: ./dist/index.js
       handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
         - handler: handleCall
           kind: substrate/CallHandler
-          filter: 
-            module: dmp
-        - handler: handleCall
-          kind: substrate/CallHandler
-          filter: 
-            module: hrmp
-        - handler: handleCall
-          kind: substrate/CallHandler
-          filter: 
-            module: ump
-        - handler: handleCall
-          kind: substrate/CallHandler
-          filter: 
-            module: paraInherent
-        - handler: handleCall
-          kind: substrate/CallHandler
-          filter: 
-            module: xcmPallet
      
