@@ -2,13 +2,13 @@ version: "3"
 
 services:
   subquery-polkadot:
-    image: onfinality/subql-node:v1.4.1
+    image: onfinality/subql-node:v1.5.1
     restart: always
     environment:
       DB_USER: postgres
-      DB_PASS: Dev123!@#
-      DB_DATABASE: dev-polkadot-xcm
-      DB_HOST: 16.163.5.216
+      DB_PASS: p>postgres123#2022Web3Go
+      DB_DATABASE: prod-polkadot
+      DB_HOST: web3go-pg.cco8evagtdwc.ap-southeast-1.rds.amazonaws.com
       DB_PORT: 5432
     volumes:
       - ./:/app
@@ -17,7 +17,8 @@ services:
       - --db-schema=public
       - --scale-batch-size=false
       - --batch-size=20
+      - --disable-historical=false
       #- --force-clean=true
       - --log-level=debug
       # - --debug
-      # - --profiler=true
+      - --profiler=true
