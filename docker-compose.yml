@@ -2,7 +2,7 @@ version: "3"
 
 services:
   subquery-polkadot:
-    image: onfinality/subql-node:v1.5.1
+    image: onfinality/subql-node:v1.4.1
     restart: always
     environment:
       DB_USER: postgres
@@ -15,10 +15,10 @@ services:
     command:
       - -f=/app
       - --db-schema=public
-      - --scale-batch-size=false
+      - --scale-batch-size=true
       - --batch-size=20
-      - --disable-historical=false
-      #- --force-clean=true
-      - --log-level=debug
+      # - --disable-historical=false
+      - --workers=2
+      # - --log-level=debug
       # - --debug
-      - --profiler=true
+      # - --profiler=true

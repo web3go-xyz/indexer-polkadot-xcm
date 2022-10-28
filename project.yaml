@@ -22,11 +22,11 @@ dataSources:
           kind: substrate/EventHandler
         - handler: handleCall
           kind: substrate/CallHandler
-        - handler: handleHrmpEvents
-          kind: substrate/EventHandler
-          filter: 
-            module: hrmp
-        - handler: handleXcmPalletExtrinsics
-          kind: substrate/CallHandler
-          filter: 
-            module: xcmPallet
+        # - handler: handleHrmpEvents
+        #   kind: substrate/EventHandler
+        #   filter: 
+        #     module: hrmp
+        # - handler: handleXcmPalletExtrinsics
+        #   kind: substrate/CallHandler
+        #   filter: 
+        #     module: xcmPallet

@@ -36,15 +36,15 @@ type SubstrateEventEntity @entity {
   timestamp: BigInt
 }
 
-type HrmpChannel @entity {
-  id: ID! # ${from}-${to}
-  sender: String!
-  recipient: String!
-  proposedMaxCapacity: BigInt!
-  proposedMaxMessageSize: BigInt!
-  status: String
-  requestedEventId: String
-  acceptedEventId: String
-  canceledEventId: String
-  closedEventId: String
-}
+# type HrmpChannel @entity {
+#   id: ID! # ${from}-${to}
+#   sender: String!
+#   recipient: String!
+#   proposedMaxCapacity: BigInt!
+#   proposedMaxMessageSize: BigInt!
+#   status: String
+#   requestedEventId: String
+#   acceptedEventId: String
+#   canceledEventId: String
+#   closedEventId: String
+# }
