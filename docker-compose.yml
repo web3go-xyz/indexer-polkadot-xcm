@@ -2,7 +2,7 @@ version: "3"
 
 services:
   subquery-polkadot:
-    image: onfinality/subql-node:v1.4.1
+    image: onfinality/subql-node:v1.11.0
     restart: always
     environment:
       DB_USER: postgres
