@@ -1,13 +1,13 @@
 version: "3"
 
 services:
-  subquery-polkadot:
+  subquery-kusama:
     image: onfinality/subql-node:v1.11.0
     restart: always
     environment:
       DB_USER: postgres
       DB_PASS: p>postgres123#2022Web3Go
-      DB_DATABASE: prod-polkadot
+      DB_DATABASE: prod-kusama
       DB_HOST: web3go-pg.cco8evagtdwc.ap-southeast-1.rds.amazonaws.com
       DB_PORT: 5432
     volumes:
